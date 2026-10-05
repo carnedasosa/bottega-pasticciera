@@ -169,6 +169,9 @@
 
   .hero__sticky {
     padding-block: 0;
+    /* Il sigillo sporge di 2rem sotto l'arco: con overflow hidden
+       veniva tagliato dal bordo inferiore della sezione */
+    overflow: visible;
   }
 
   .hero__copy {
@@ -219,5 +222,12 @@
     bottom: -2rem;
     opacity: 1;
     scale: 0.85;
+  }
+
+  /* Il testo deve stare tutto nella circonferenza (490 unità SVG):
+     con corpo e spaziatura di base "mezzanotte" veniva troncato */
+  .hero .seal__text {
+    font-size: 14.5px;
+    letter-spacing: 0.1em;
   }
 }

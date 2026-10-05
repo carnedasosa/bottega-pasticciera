@@ -1,6 +1,6 @@
 import { dayMoments } from '../../data/day.js';
 import { site } from '../../data/site.js';
-import { h } from '../core/dom.js';
+import { clamp, h } from '../core/dom.js';
 import { onScroll, prefersReducedMotion, scrollProgress } from '../core/motion.js';
 import { zonedNow } from '../services/clock.js';
 import { getMomentIndex } from '../services/day-moment.js';
@@ -61,6 +61,11 @@ export default function mount(section) {
   const last = dayMoments.length - 1;
 
   onScroll(() => {
+    // Ingresso (0 → 1) mentre la sezione sale dal fondo alla cima dello
+    // schermo, con ease-out: su mobile porta l'orologio accanto al titolo.
+    const enter = clamp(1 - section.getBoundingClientRect().top / window.innerHeight);
+    section.style.setProperty('--day-in', (1 - (1 - enter) ** 3).toFixed(3));
+
     const p = scrollProgress(section, { pinned: true });
     const segment = p * last;
     const i = Math.min(Math.floor(segment), last - 1);

@@ -226,12 +226,83 @@
 
 @media (max-width: 820px) {
   .day {
+    --clock-size: 4.75rem;
+
     height: 420vh;
   }
 
+  /* L'orologio esce dall'angolo in basso (dove lo coprivano le card e il
+     pulsante WhatsApp) e si affianca al titolo, nella stessa riga della
+     griglia. --day-in (0 → 1, da day-timeline.js) lo fa scivolare dentro
+     da destra, ruotando, mentre la sezione sale verso la cima. */
+  .day__head {
+    grid-area: 1 / 1;
+    padding-right: calc(var(--clock-size) + var(--space-m));
+  }
+
   .day__clock {
-    width: 5rem;
+    --in: var(--day-in, 1);
+
+    grid-area: 1 / 1;
+    justify-self: end;
+    position: relative;
     top: auto;
-    bottom: var(--space-xl);
+    right: auto;
+    margin-right: var(--gutter);
+    width: var(--clock-size);
+    opacity: var(--in);
+    translate: calc((1 - var(--in)) * 60vw) 0;
+    rotate: calc((1 - var(--in)) * 120deg);
+  }
+
+  /* Nel quadrante piccolo la lancetta passerebbe sopra le cifre:
+     l'orario scende sotto l'orologio */
+  .day__clock-time {
+    position: absolute;
+    top: 100%;
+    margin-top: var(--space-2xs);
+    font-size: 0.95rem;
+  }
+
+  .day__clock-hand {
+    height: 38%;
+  }
+
+  .day__track {
+    padding-inline-end: var(--gutter);
+  }
+}
+
+/* Telefoni bassi: le card si compattano per restare intere nello schermo */
+@media (max-width: 820px) and (max-height: 760px) {
+  .day__sticky {
+    padding-block: calc(var(--header-h) + var(--space-2xs)) var(--space-m);
+  }
+
+  .day .section-title {
+    font-size: var(--step-3);
+  }
+
+  .day-card {
+    padding: var(--space-xl) var(--space-m) var(--space-m);
+    border-radius: 9rem 9rem var(--radius-l) var(--radius-l);
+  }
+
+  .day-card__time {
+    font-size: var(--step-3);
+  }
+
+  .day-card__title {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-xs);
+  }
+
+  .day-card__text {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .day-card__picks {
+    margin-top: var(--space-s);
   }
 }
