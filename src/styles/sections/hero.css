@@ -22,25 +22,32 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  /* Il contenuto si centra nello spazio libero sotto l'header fisso,
+     non nell'intero viewport: così non finisce mai sotto la navbar */
+  padding-block: calc(var(--header-h) + var(--space-s)) var(--space-m);
 }
 
 .hero__grid {
-  position: relative;
-  z-index: 2;
   width: min(100% - 2 * var(--gutter), 90rem);
 }
 
 .hero__copy {
+  /* Il testo sta sopra la foto; la griglia NON è posizionata, così la foto
+     (absolute) prende come riferimento l'intero schermo sticky */
+  position: relative;
+  z-index: 2;
   max-width: min(46vw, 40rem);
   display: grid;
-  gap: var(--space-m);
+  gap: min(var(--space-m), 2.2vh);
   justify-items: start;
   opacity: calc(1 - var(--p) * 2.2);
   translate: 0 calc(var(--p) * -12vh);
 }
 
 .hero__title {
-  font-size: var(--step-5);
+  /* Limitato anche in altezza: sui portatili con schermo basso
+     il titolo su tre righe deve restare nello spazio disponibile */
+  font-size: min(var(--step-5), 11.5vh);
   font-weight: 400;
   line-height: 0.95;
 }
@@ -57,7 +64,7 @@
 
 .hero__lead {
   max-width: 34rem;
-  font-size: var(--step-1);
+  font-size: min(var(--step-1), 2.9vh);
   color: var(--color-muted);
   animation: rise 1.2s var(--ease-out) 0.25s both;
 }
@@ -92,8 +99,10 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 45%;
-  /* All'inizio la foto è ridotta e centrata nell'arco, poi torna a schermo pieno */
-  scale: calc(0.62 + var(--p) * 0.38);
+  /* All'inizio la foto è centrata nell'arco, poi torna a schermo pieno.
+     Scala minima 0.9: con meno la foto non copre più l'arco in verticale
+     (che va dal 15% al 94% dell'altezza dello schermo). */
+  scale: calc(0.9 + var(--p) * 0.1);
   translate: calc(var(--q) * 25.5vw) 0;
 }
 
@@ -158,10 +167,23 @@
     display: block;
   }
 
+  .hero__sticky {
+    padding-block: 0;
+  }
+
   .hero__copy {
     max-width: none;
     opacity: 1;
     translate: none;
+    gap: var(--space-m);
+  }
+
+  .hero__title {
+    font-size: var(--step-5);
+  }
+
+  .hero__lead {
+    font-size: var(--step-1);
   }
 
   .hero__visual {

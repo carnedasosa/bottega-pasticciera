@@ -7,6 +7,14 @@
   font-weight: 600;
 }
 
+/* Nella navbar desktop compare solo se c'è spazio (in hero è sempre visibile).
+   Sta in questo layer perché deve vincere sulla regola qui sopra. */
+@media (min-width: 961px) and (max-width: 1279px) {
+  .site-nav__status {
+    display: none;
+  }
+}
+
 .status-pill {
   padding: 0.4rem 0.9rem 0.4rem 0.75rem;
   border-radius: var(--radius-pill);

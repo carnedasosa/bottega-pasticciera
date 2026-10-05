@@ -30,6 +30,8 @@
 
 /* Marchio */
 .brand {
+  flex: none;
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
@@ -74,6 +76,7 @@
 }
 
 .site-nav__link {
+  white-space: nowrap;
   position: relative;
   padding-block: var(--space-2xs);
   font-weight: 600;
@@ -100,7 +103,7 @@
 }
 
 .site-nav__status {
-  display: none;
+  white-space: nowrap;
 }
 
 /* Hamburger */
