@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- @include head.html {
+      "title": "La Bottega Pasticcera — Bar, pasticceria e catering a Sannicandro di Bari",
+      "description": "Dalle 6 a mezzanotte sotto la volta di Corso Vittorio Emanuele: cornetti artigianali, pasticceria pugliese, panzerotti, aperitivi e catering per matrimoni, cerimonie ed eventi.",
+      "path": ""
+    } -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["Bakery", "CafeOrCoffeeShop"],
+        "name": "La Bottega Pasticcera",
+        "slogan": "Pasticcieri per vocazione",
+        "image": "https://www.labottegapasticcera.it/og-cover.jpg",
+        "telephone": "{{ site.contacts.phone }}",
+        "email": "{{ site.contacts.email }}",
+        "priceRange": "€",
+        "servesCuisine": ["Pasticceria", "Caffetteria", "Rosticceria pugliese"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{ site.address.street }}",
+          "postalCode": "70028",
+          "addressLocality": "Sannicandro di Bari",
+          "addressRegion": "BA",
+          "addressCountry": "IT"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": {{ site.address.geo.lat }}, "longitude": {{ site.address.geo.lng }} },
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "06:00", "closes": "13:30" },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "06:00",
+            "closes": "23:59"
+          }
+        ],
+        "sameAs": [
+          "{{ site.socials.instagram }}",
+          "{{ site.socials.instagramCatering }}",
+          "{{ site.socials.facebook }}"
+        ]
+      }
+    </script>
+  </head>
+
+  <body class="page page--home">
+    <!-- @include sprite.html -->
+    <!-- @include header.html -->
+
+    <main id="contenuto">
+      <!-- ─────────────── HERO: la volta che si apre ─────────────── -->
+      <section class="hero" data-component="hero-arch" aria-labelledby="hero-title">
+        <div class="hero__sticky">
+          <div class="container hero__grid">
+            <div class="hero__copy">
+              <p class="eyebrow">Bar · Pasticceria · Catering — Sannicandro di Bari</p>
+              <h1 class="hero__title" id="hero-title">
+                <span class="hero__line">Pasticcieri</span>
+                <span class="hero__line"><em>per vocazione.</em></span>
+              </h1>
+              <p class="hero__lead">
+                Sotto una volta a botte nel cuore del paese, dalle sei del mattino a mezzanotte: cornetti
+                artigianali, pasticceria pugliese, panzerotti fritti al momento e gin fino a tardi.
+              </p>
+              <div class="hero__actions">
+                <a class="btn btn--terracotta" href="/menu.html">
+                  Sfoglia il menu <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+                <a class="btn btn--ghost" href="/catering.html">Organizza un evento</a>
+              </div>
+              <p class="status-pill" data-component="open-status"></p>
+            </div>
+
+            <figure class="hero__visual">
+              <div class="hero__arch">
+                <img
+                  src="/src/assets/img/interno-volta.webp"
+                  alt="La sala de La Bottega Pasticcera: volta a botte bianca, sedute in velluto terracotta e pavimento in graniglia"
+                  width="1200"
+                  height="1500"
+                  fetchpriority="high"
+                />
+              </div>
+              <figcaption class="hero__caption">
+                <strong>Benvenuti <em>sotto la volta.</em></strong>
+                <span class="eyebrow eyebrow--light">{{ site.address.street }} · {{ site.address.city }}</span>
+              </figcaption>
+              <div class="seal" aria-hidden="true">
+                <svg class="seal__text" viewBox="0 0 200 200">
+                  <defs><path id="seal-circle" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0" /></defs>
+                  <text><textPath href="#seal-circle">dal laboratorio al bancone · dalle 6 a mezzanotte ·</textPath></text>
+                </svg>
+                <svg class="seal__mark"><use href="#logo-mark" /></svg>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── MANIFESTO ─────────────── -->
+      <section class="manifesto" aria-label="Chi siamo">
+        <div class="container">
+          <p class="manifesto__text" data-reveal>
+            Tra velluto terracotta e graniglia impastiamo
+            <span class="inline-pic"><img src="/src/assets/img/dettaglio-zeppole.webp" alt="" width="640" height="640" loading="lazy" /></span>
+            dolci pugliesi, friggiamo panzerotti, montiamo creme
+            <span class="inline-pic"><img src="/src/assets/img/dettaglio-tiramisu.webp" alt="" width="640" height="640" loading="lazy" /></span>
+            e portiamo la stessa cura nelle vostre feste,
+            <em>dal primo caffè all’ultimo brindisi.</em>
+          </p>
+
+          <ul class="facts" data-reveal>
+            <li class="facts__item"><strong>18</strong><span>ore al giorno di apertura</span></li>
+            <li class="facts__item"><strong>6:00</strong><span>il primo cornetto del mattino</span></li>
+            <li class="facts__item"><strong>4,5★</strong><span>su oltre 170 recensioni Google</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ─────────────── UNA GIORNATA IN BOTTEGA (scroll orizzontale) ─────────────── -->
+      <section class="day" id="giornata" data-component="day-timeline" aria-labelledby="day-title">
+        <div class="day__sticky">
+          <div class="day__sky" aria-hidden="true"></div>
+          <header class="container day__head">
+            <p class="eyebrow">Dalle 6:00 alle 24:00</p>
+            <h2 class="section-title" id="day-title">Una giornata <em>in Bottega</em></h2>
+          </header>
+
+          <div class="day__clock" aria-hidden="true">
+            <span class="day__clock-hand"></span>
+            <span class="day__clock-time" data-day-time>06:00</span>
+          </div>
+
+          <ol class="day__track" data-day-track></ol>
+
+          <div class="container day__progress" aria-hidden="true"><span data-day-bar></span></div>
+        </div>
+      </section>
+
+      <!-- ─────────────── LA VETRINA ─────────────── -->
+      <section class="showcase" aria-labelledby="showcase-title">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">La vetrina</p>
+            <h2 class="section-title" id="showcase-title">Tre cose che <em>non devi perderti</em></h2>
+          </header>
+
+          <ul class="showcase__grid">
+            <li class="arch-card" data-reveal>
+              <div class="arch-card__media">
+                <img src="/src/assets/img/dettaglio-zeppole.webp" alt="Zeppole con crema e amarena in vetrina" width="640" height="640" loading="lazy" />
+              </div>
+              <h3 class="arch-card__title">Pasticceria pugliese XXL</h3>
+              <p class="arch-card__text">Zeppole, tette della monaca, code di rospo e babà: la tradizione, in grande.</p>
+            </li>
+            <li class="arch-card arch-card--offset" data-reveal>
+              <div class="arch-card__media">
+                <img src="/src/assets/img/dettaglio-mignon.webp" alt="Pasticcini mignon: red velvet, cassatine al pistacchio, mousse al cioccolato" width="640" height="400" loading="lazy" />
+              </div>
+              <h3 class="arch-card__title">Mignon e monoporzioni</h3>
+              <p class="arch-card__text">Un vassoio per la domenica o il dessert per un ricevimento: sempre dal nostro laboratorio.</p>
+            </li>
+            <li class="arch-card" data-reveal>
+              <div class="arch-card__media arch-card__media--illustrated" aria-hidden="true">
+                <svg viewBox="0 0 120 120" class="arch-card__panzerotto">
+                  <path d="M14 78a46 46 0 0 1 92 0Z" fill="#e9b26c" />
+                  <path d="M14 78a46 46 0 0 1 92 0" fill="none" stroke="#3b1c12" stroke-width="3" />
+                  <path d="M16 78q4 6 8 0t8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0" fill="none" stroke="#3b1c12" stroke-width="3" stroke-linecap="round" />
+                  <circle cx="44" cy="58" r="3" fill="#c4532d" /><circle cx="70" cy="50" r="2.4" fill="#c4532d" /><circle cx="78" cy="64" r="2" fill="#c4532d" />
+                </svg>
+              </div>
+              <h3 class="arch-card__title">Panzerotti fritti al momento</h3>
+              <p class="arch-card__text">Classico, ricotta forte, mortadella e pistacchio, capocollo. Anche senza lattosio.</p>
+            </li>
+          </ul>
+
+          <p class="showcase__cta" data-reveal>
+            <a class="link-arrow" href="/menu.html">Tutto il menu, prezzi compresi <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ─────────────── CATERING TEASER ─────────────── -->
+      <section class="catering-teaser" aria-labelledby="catering-teaser-title">
+        <div class="container catering-teaser__grid">
+          <div class="catering-teaser__copy" data-reveal>
+            <p class="eyebrow eyebrow--light">Catering &amp; eventi</p>
+            <h2 class="section-title section-title--light" id="catering-teaser-title">
+              Quando la festa è vostra, <em>la cucina è nostra.</em>
+            </h2>
+            <p>
+              Matrimoni, comunioni, compleanni, eventi aziendali: menu personalizzati costruiti su ingredienti freschi
+              e locali, salato e dolce dallo stesso laboratorio. E per chi cerca la location, c’è
+              <strong>Villa Ieva</strong>, dove il catering porta la nostra firma.
+            </p>
+            <a class="btn btn--cream" href="/catering.html">
+              Scopri il catering <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+            </a>
+          </div>
+
+          <ul class="hover-list" data-component="hover-reveal" data-reveal>
+            <li class="hover-list__item">
+              <img class="hover-list__img" src="/src/assets/img/dettaglio-mignon.webp" alt="" loading="lazy" />
+              <span class="hover-list__index">01</span> Matrimoni
+            </li>
+            <li class="hover-list__item">
+              <img class="hover-list__img" src="/src/assets/img/dettaglio-zeppole.webp" alt="" loading="lazy" />
+              <span class="hover-list__index">02</span> Comunioni &amp; battesimi
+            </li>
+            <li class="hover-list__item">
+              <img class="hover-list__img" src="/src/assets/img/dettaglio-tiramisu.webp" alt="" loading="lazy" />
+              <span class="hover-list__index">03</span> Compleanni
+            </li>
+            <li class="hover-list__item">
+              <img class="hover-list__img" src="/src/assets/img/vetrina.webp" alt="" loading="lazy" />
+              <span class="hover-list__index">04</span> Eventi aziendali
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ─────────────── RECENSIONI ─────────────── -->
+      <section class="voices" aria-labelledby="voices-title">
+        <h2 class="visually-hidden" id="voices-title">Dicono di noi</h2>
+        <div class="marquee" data-component="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span>Cornetti</span><span class="marquee__dot"></span>
+            <span><em>Zeppole</em></span><span class="marquee__dot"></span>
+            <span>Panzerotti</span><span class="marquee__dot"></span>
+            <span><em>Caffè leccese</em></span><span class="marquee__dot"></span>
+            <span>Gin tonic</span><span class="marquee__dot"></span>
+            <span><em>Torte su misura</em></span><span class="marquee__dot"></span>
+          </div>
+        </div>
+        <div class="container voices__grid" data-component="reviews"></div>
+      </section>
+
+      <!-- ─────────────── DOVE SIAMO ─────────────── -->
+      <section class="visit" id="visita" aria-labelledby="visit-title">
+        <div class="container visit__grid">
+          <div class="visit__info" data-reveal>
+            <p class="eyebrow">Dove siamo</p>
+            <h2 class="section-title" id="visit-title">Corso Vittorio <em>Emanuele, 106</em></h2>
+            <p class="visit__address">{{ site.address.postalCode }} {{ site.address.city }} ({{ site.address.province }}), nel centro del paese.</p>
+
+            <div class="hours" data-component="hours-table"></div>
+
+            <ul class="visit__contacts">
+              <li><a class="btn btn--terracotta" href="tel:{{ site.contacts.phone }}">Chiama {{ site.contacts.phoneLabel }}</a></li>
+              <li>
+                <a
+                  class="btn btn--ghost"
+                  href="https://www.google.com/maps/dir/?api=1&amp;destination={{ site.address.geo.lat }},{{ site.address.geo.lng }}"
+                  target="_blank"
+                  rel="noopener"
+                  >Indicazioni stradali</a
+                >
+              </li>
+            </ul>
+            <p class="visit__amenities">{{ site.amenities }}</p>
+          </div>
+
+          <div class="visit__map" data-reveal>
+            <iframe
+              title="Mappa: La Bottega Pasticcera, Corso Vittorio Emanuele 106, Sannicandro di Bari"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=16.7951%2C40.9985%2C16.8051%2C41.0042&amp;layer=mapnik&amp;marker=41.0013514%2C16.8001678"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include footer.html -->
+  </body>
+</html>

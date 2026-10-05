@@ -1,0 +1,79 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  background-color: var(--color-bg);
+  background-image: var(--terrazzo);
+  background-size: 320px;
+  overflow-x: clip;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--terracotta);
+  color: var(--panna);
+}
+
+:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-s);
+  left: var(--space-s);
+  z-index: 100;
+  padding: var(--space-xs) var(--space-m);
+  background: var(--cioccolato);
+  color: var(--panna);
+  border-radius: var(--radius-pill);
+  transform: translateY(-200%);
+  transition: transform 0.2s;
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Animazione d'ingresso (attivata da core/reveal.js) */
+.js [data-reveal] {
+  opacity: 0;
+  translate: 0 2rem;
+  transition:
+    opacity 0.9s var(--ease-out) var(--reveal-delay, 0ms),
+    translate 0.9s var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Ingresso dal basso, usato da hero e pagine interne */
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

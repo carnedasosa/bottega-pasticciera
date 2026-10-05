@@ -1,0 +1,25 @@
+/* Anteprima immagine che segue il cursore (components/hover-reveal.js) */
+.hover-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 14rem;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  pointer-events: none;
+  box-shadow: var(--shadow-lift);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hover-preview.is-visible {
+  opacity: 1;
+}
+
+.hover-preview__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

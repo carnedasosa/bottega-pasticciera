@@ -1,0 +1,126 @@
+.btn {
+  --btn-bg: var(--cioccolato);
+  --btn-fg: var(--panna);
+  --btn-border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  min-height: 3.1rem;
+  padding: 0.8rem 1.5rem;
+  border: 1.5px solid var(--btn-border);
+  border-radius: var(--radius-pill);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    color 0.3s;
+}
+
+/* Riempimento ad arco che sale al passaggio del mouse */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--btn-hover, var(--cacao));
+  border-radius: 50% 50% 0 0;
+  transform: translateY(101%);
+  transition:
+    transform 0.5s var(--ease-out),
+    border-radius 0.5s var(--ease-out);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  color: var(--btn-hover-fg, var(--btn-fg));
+}
+
+.btn:hover::before {
+  transform: translateY(0);
+  border-radius: 0;
+}
+
+.btn svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
+.btn[aria-disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.btn--small {
+  min-height: 2.5rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+.btn--terracotta {
+  --btn-bg: var(--terracotta);
+  --btn-hover: var(--terracotta-deep);
+}
+
+.btn--cream {
+  --btn-bg: var(--panna);
+  --btn-fg: var(--cioccolato);
+  --btn-hover: var(--terracotta-soft);
+}
+
+.btn--ghost {
+  --btn-bg: transparent;
+  --btn-fg: var(--cioccolato);
+  --btn-border: currentColor;
+  --btn-hover: var(--cioccolato);
+  --btn-hover-fg: var(--panna);
+}
+
+.btn--ghost-light {
+  --btn-bg: transparent;
+  --btn-fg: var(--panna);
+  --btn-border: color-mix(in srgb, var(--panna) 50%, transparent);
+  --btn-hover: var(--panna);
+  --btn-hover-fg: var(--cioccolato);
+}
+
+.btn--whatsapp {
+  --btn-bg: var(--whatsapp);
+  --btn-hover: #157a41;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-weight: 700;
+  color: var(--terracotta-deep);
+  text-decoration: none;
+  background: linear-gradient(currentColor 0 0) left bottom / 0 1.5px no-repeat;
+  transition: background-size 0.4s var(--ease-out);
+}
+
+.link-arrow:hover {
+  background-size: 100% 1.5px;
+}
+
+.link-arrow svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}

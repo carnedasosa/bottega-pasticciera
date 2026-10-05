@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- @include head.html {
+      "title": "Menu e prezzi — La Bottega Pasticcera, Sannicandro di Bari",
+      "description": "Caffetteria, colazione, pasticceria, gelateria, panzerotti, piadine, aperitivi, gin e birre: il menu completo con prezzi de La Bottega Pasticcera.",
+      "path": "menu.html"
+    } -->
+  </head>
+
+  <body class="page page--menu">
+    <!-- @include sprite.html -->
+    <!-- @include header.html -->
+
+    <main id="contenuto">
+      <section class="page-hero page-hero--menu" aria-labelledby="menu-title">
+        <div class="container page-hero__inner">
+          <p class="eyebrow">Dalla vetrina al bancone</p>
+          <h1 class="page-hero__title" id="menu-title">Il <em>menu</em></h1>
+          <p class="page-hero__lead">
+            Sfoglialo per categoria, cerca il tuo preferito o filtra le specialità. Prezzi aggiornati al menu in sala.
+          </p>
+        </div>
+        <svg class="page-hero__mark" aria-hidden="true"><use href="#logo-mark" /></svg>
+      </section>
+
+      <section class="menu-board" data-component="menu-board" aria-label="Menu completo">
+        <div class="menu-board__toolbar">
+          <div class="container menu-board__toolbar-inner">
+            <label class="search">
+              <span class="visually-hidden">Cerca nel menu</span>
+              <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.8" />
+                <path d="m20 20-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <input class="search__input" type="search" placeholder="Cerca: pistacchio, gin, panzerotto…" data-menu-search />
+            </label>
+            <div class="chips" role="group" aria-label="Filtra per specialità" data-menu-tags></div>
+          </div>
+          <nav class="container menu-board__nav" aria-label="Categorie del menu">
+            <ul class="menu-board__nav-list" data-menu-nav></ul>
+          </nav>
+        </div>
+
+        <div class="container menu-board__content">
+          <div class="menu-board__grid" data-menu-grid></div>
+          <p class="menu-board__empty" data-menu-empty hidden>
+            Nessun prodotto trovato. Chiedi al bancone: spesso c’è più di quanto stia in un menu!
+          </p>
+          <p class="menu-board__note">
+            Per allergie e intolleranze chiedi al nostro personale. Torte e vassoi su ordinazione:
+            <a href="tel:{{ site.contacts.phone }}">{{ site.contacts.phoneLabel }}</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include footer.html -->
+  </body>
+</html>

@@ -1,0 +1,219 @@
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding-block: var(--space-s);
+  transition:
+    transform 0.5s var(--ease-out),
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.site-header.is-scrolled {
+  background: color-mix(in srgb, var(--latte) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow: 0 1px 0 var(--color-line);
+}
+
+.site-header.is-hidden {
+  transform: translateY(-110%);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  width: min(100% - 2 * var(--gutter), 90rem);
+  margin-inline: auto;
+}
+
+/* Marchio */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  color: var(--cioccolato);
+}
+
+.brand__mark {
+  width: 2.6rem;
+  height: 2.6rem;
+  transition: rotate 0.6s var(--ease-out);
+}
+
+.brand:hover .brand__mark {
+  rotate: -8deg;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  font-variation-settings: 'SOFT' 100;
+}
+
+.brand__name small {
+  font-size: 0.7em;
+  vertical-align: 0.35em;
+}
+
+/* Navigazione */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+}
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-m);
+}
+
+.site-nav__link {
+  position: relative;
+  padding-block: var(--space-2xs);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.site-nav__link::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -2px;
+  height: 2px;
+  background: var(--terracotta);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link[aria-current='page']::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.site-nav__status {
+  display: none;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--cioccolato);
+  position: relative;
+  z-index: 2;
+}
+
+.nav-toggle__bars,
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  background: var(--panna);
+  border-radius: 2px;
+  transition:
+    transform 0.4s var(--ease-out),
+    opacity 0.2s;
+}
+
+.nav-toggle__bars {
+  position: relative;
+}
+
+.nav-toggle__bars::before,
+.nav-toggle__bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle__bars::before {
+  transform: translateY(-6px);
+}
+
+.nav-toggle__bars::after {
+  transform: translateY(6px);
+}
+
+.is-open .nav-toggle__bars {
+  background: transparent;
+}
+
+.is-open .nav-toggle__bars::before {
+  transform: rotate(45deg);
+}
+
+.is-open .nav-toggle__bars::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 960px) {
+  .nav-toggle {
+    display: grid;
+  }
+
+  /* Il menu mobile si apre come un arco che sale dal basso */
+  .site-nav {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-l);
+    padding: var(--space-2xl) var(--gutter);
+    background: var(--cioccolato);
+    color: var(--panna);
+    clip-path: inset(100% 0 0 0 round 50vw 50vw 0 0);
+    visibility: hidden;
+    transition:
+      clip-path 0.7s var(--ease-in-out),
+      visibility 0s linear 0.7s;
+  }
+
+  .is-open .site-nav {
+    clip-path: inset(0 0 0 0 round 0);
+    visibility: visible;
+    transition: clip-path 0.7s var(--ease-in-out);
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
+  .site-nav__link {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 400;
+  }
+
+  .site-nav__status {
+    display: inline-flex;
+  }
+
+  /* backdrop-filter crea un containing block: va tolto perché il menu
+     fixed possa coprire tutto lo schermo */
+  .site-header.is-open {
+    backdrop-filter: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .is-open .brand {
+    color: var(--panna);
+    position: relative;
+    z-index: 2;
+  }
+}

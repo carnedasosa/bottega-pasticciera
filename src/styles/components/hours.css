@@ -1,0 +1,45 @@
+.hours {
+  padding: var(--space-m) var(--space-l);
+  border-radius: var(--radius-l);
+  background: var(--panna);
+  box-shadow: var(--shadow-soft);
+}
+
+.hours__title {
+  font-size: var(--step-1);
+  margin-bottom: var(--space-xs);
+}
+
+.hours__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding-block: var(--space-xs);
+  border-bottom: 1px dashed var(--color-line);
+}
+
+.hours__row:last-child {
+  border-bottom: 0;
+}
+
+.hours__row dd {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  text-align: right;
+}
+
+.hours__row.is-today {
+  color: var(--terracotta-deep);
+}
+
+.hours__today {
+  margin-left: var(--space-xs);
+  padding: 0.1rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--terracotta);
+  color: var(--panna);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}

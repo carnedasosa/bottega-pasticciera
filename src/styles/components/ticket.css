@@ -1,0 +1,99 @@
+/* Il "biglietto" riepilogativo, come uno scontrino di pasticceria */
+.ticket {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-m));
+  align-self: start;
+  padding: var(--space-l);
+  background: var(--panna);
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
+  box-shadow: var(--shadow-lift);
+  rotate: 1deg;
+  transition: rotate 0.6s var(--ease-out);
+}
+
+.is-ready .ticket {
+  rotate: 0deg;
+}
+
+/* Bordo inferiore dentellato */
+.ticket::after {
+  content: '';
+  position: absolute;
+  inset: 100% 0 auto;
+  height: 14px;
+  background: radial-gradient(circle at 10px 0, var(--panna) 9px, transparent 10px) 0 0 / 20px 14px repeat-x;
+  filter: drop-shadow(0 6px 6px rgb(59 28 18 / 0.15));
+}
+
+.ticket__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding-bottom: var(--space-m);
+  margin-bottom: var(--space-s);
+  border-bottom: 2px dashed var(--color-line);
+}
+
+.ticket__mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--terracotta);
+}
+
+.ticket__brand {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  line-height: 1.15;
+}
+
+.ticket__brand small {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.ticket__rows {
+  display: grid;
+}
+
+.ticket__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding-block: 0.55rem;
+  border-bottom: 1px dotted var(--color-line);
+  font-size: 0.92rem;
+}
+
+.ticket__row dt {
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.ticket__row dd {
+  font-weight: 700;
+  text-align: right;
+}
+
+.ticket__row.is-empty dd {
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.ticket__actions {
+  display: grid;
+  gap: var(--space-xs);
+  margin-top: var(--space-l);
+}
+
+.ticket__hint {
+  margin-top: var(--space-s);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  text-align: center;
+}

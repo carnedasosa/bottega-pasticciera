@@ -1,0 +1,72 @@
+.manifesto {
+  padding-block: var(--space-2xl);
+}
+
+.manifesto__text {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 350;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  font-variation-settings:
+    'SOFT' 100,
+    'opsz' 144;
+  max-width: 24ch;
+}
+
+/* Immagini incastonate nel testo, a forma di pillola */
+.inline-pic {
+  display: inline-block;
+  width: 1.9em;
+  height: 0.95em;
+  vertical-align: -0.05em;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  rotate: -4deg;
+  transition:
+    width 0.6s var(--ease-out),
+    rotate 0.6s var(--ease-out);
+}
+
+.inline-pic:nth-of-type(2) {
+  rotate: 5deg;
+}
+
+.inline-pic:hover {
+  width: 2.6em;
+  rotate: 0deg;
+}
+
+.inline-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-l);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-l);
+  border-top: 1.5px solid var(--cioccolato);
+}
+
+.facts__item {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.facts__item strong {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--terracotta);
+}
+
+.facts__item span {
+  font-weight: 600;
+  color: var(--color-muted);
+}

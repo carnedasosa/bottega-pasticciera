@@ -1,0 +1,237 @@
+/**
+ * "Una giornata in Bottega": scroll verticale → movimento orizzontale.
+ * day-timeline.js aggiorna colori del cielo (--sky-a/b), angolo della
+ * lancetta (--day-angle) e traslazione del binario delle card.
+ */
+.day {
+  --sky-a: #f7d9b9;
+  --sky-b: #f3b98f;
+  --day-angle: 180deg;
+  --day-ink: var(--cioccolato);
+
+  position: relative;
+  height: 520vh;
+  color: var(--day-ink);
+}
+
+.day--night {
+  --day-ink: var(--panna);
+}
+
+.day__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /* minmax(0, …) impedisce al binario di allargare la colonna:
+     la parte in eccesso viene poi traslata da day-timeline.js */
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  padding-block: calc(var(--header-h) + var(--space-m)) var(--space-l);
+}
+
+.day__sky {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 10%, color-mix(in srgb, var(--panna) 40%, transparent), transparent 70%),
+    linear-gradient(170deg, var(--sky-a), var(--sky-b));
+}
+
+.day__head {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.day .eyebrow,
+.day h2 em {
+  color: inherit;
+  opacity: 0.8;
+}
+
+/* Orologio */
+.day__clock {
+  position: absolute;
+  top: calc(var(--header-h) + var(--space-m));
+  right: var(--gutter);
+  display: grid;
+  place-items: center;
+  width: clamp(6rem, 11vw, 9rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+
+.day__clock::before {
+  content: '';
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(currentColor 0 1deg, transparent 1deg 30deg);
+  mask: radial-gradient(circle, transparent 82%, #000 83%);
+  opacity: 0.6;
+}
+
+.day__clock-hand {
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - 1.5px);
+  width: 3px;
+  height: 36%;
+  border-radius: 3px;
+  background: var(--terracotta);
+  transform-origin: bottom center;
+  rotate: var(--day-angle);
+}
+
+.day__clock-time {
+  margin-top: 45%;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Binario delle card */
+.day__track {
+  display: flex;
+  gap: var(--space-l);
+  padding-inline: var(--gutter) 30vw;
+  will-change: transform;
+}
+
+.day-card {
+  flex: none;
+  width: min(25rem, 78vw);
+  padding: var(--space-l);
+  border-radius: 12rem 12rem var(--radius-l) var(--radius-l);
+  background: color-mix(in srgb, var(--panna) 90%, transparent);
+  backdrop-filter: blur(6px);
+  color: var(--cioccolato);
+  box-shadow: var(--shadow-soft);
+  padding-top: var(--space-2xl);
+  opacity: 0.55;
+  scale: 0.94;
+  transition:
+    opacity 0.5s,
+    scale 0.6s var(--ease-out);
+}
+
+.day-card.is-active {
+  opacity: 1;
+  scale: 1;
+}
+
+.day-card__time {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--terracotta);
+}
+
+.day-card__now {
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--cioccolato);
+  color: var(--panna);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.day-card__label {
+  margin-top: var(--space-xs);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.day-card__title {
+  margin-block: var(--space-2xs) var(--space-s);
+  font-size: var(--step-3);
+}
+
+.day-card__text {
+  color: var(--color-muted);
+}
+
+.day-card__picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-m);
+}
+
+.day-card__picks li {
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-line);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.day__progress {
+  height: 2px;
+  background: color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.day__progress span {
+  display: block;
+  height: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* Versione statica (prefers-reduced-motion): scroll orizzontale nativo */
+.day--static {
+  height: auto;
+}
+
+.day--static .day__sticky {
+  position: relative;
+  height: auto;
+  gap: var(--space-l);
+}
+
+.day--static .day__track {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-m);
+}
+
+.day--static .day-card {
+  scroll-snap-align: start;
+  opacity: 1;
+  scale: 1;
+}
+
+.day--static .day__clock,
+.day--static .day__progress {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .day {
+    height: 420vh;
+  }
+
+  .day__clock {
+    width: 5rem;
+    top: auto;
+    bottom: var(--space-xl);
+  }
+}

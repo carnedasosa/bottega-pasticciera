@@ -1,0 +1,109 @@
+.menu-board__toolbar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  padding-block: var(--space-s);
+  background: color-mix(in srgb, var(--latte) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-block: 1px solid var(--color-line);
+  transition: top 0.5s var(--ease-out);
+}
+
+/* Quando l'header si nasconde, la toolbar sale al suo posto */
+.header-hidden .menu-board__toolbar {
+  top: 0;
+}
+
+.menu-board__toolbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.search {
+  position: relative;
+  flex: 1 1 18rem;
+  max-width: 28rem;
+}
+
+.search__icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  translate: 0 -50%;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--color-muted);
+}
+
+.search__input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: var(--panna);
+}
+
+.search__input:focus {
+  outline: none;
+  border-color: var(--terracotta);
+}
+
+.menu-board__nav {
+  margin-top: var(--space-s);
+}
+
+.menu-board__nav-list {
+  display: flex;
+  gap: var(--space-2xs);
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask: linear-gradient(to right, transparent, #000 1rem, #000 calc(100% - 2rem), transparent);
+  padding-inline: 1rem;
+}
+
+.menu-board__nav-link {
+  display: block;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    background-color 0.25s,
+    color 0.25s;
+}
+
+.menu-board__nav-link:hover {
+  background: var(--biscotto);
+}
+
+.menu-board__nav-link[aria-current] {
+  background: var(--cioccolato);
+  color: var(--panna);
+}
+
+.menu-board__content {
+  padding-block: var(--space-xl);
+}
+
+.menu-board__grid {
+  columns: 22rem 3;
+  column-gap: var(--space-l);
+}
+
+.menu-board__empty {
+  padding: var(--space-xl);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+}
+
+.menu-board__note {
+  margin-top: var(--space-l);
+  text-align: center;
+  color: var(--color-muted);
+}

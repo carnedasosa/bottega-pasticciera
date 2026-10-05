@@ -1,0 +1,27 @@
+.planner {
+  padding-block: var(--space-2xl);
+}
+
+.planner__layout {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 1000px) {
+  .planner__layout {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: start;
+  }
+}
+
+.planner__form {
+  padding: var(--space-xl) var(--space-l);
+  border-radius: var(--radius-l);
+  background: color-mix(in srgb, var(--panna) 60%, transparent);
+  border: 1.5px solid var(--color-line);
+}
+
+.planner__fallback {
+  text-align: center;
+  font-size: var(--step-1);
+}

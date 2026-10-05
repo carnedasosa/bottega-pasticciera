@@ -1,0 +1,65 @@
+.quote {
+  position: relative;
+  padding: var(--space-xl) var(--space-l) var(--space-l);
+  background: var(--panna);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-soft);
+}
+
+.quote::before {
+  content: '“';
+  position: absolute;
+  top: -0.2em;
+  left: var(--space-m);
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--terracotta);
+}
+
+.quote__text {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: 1.35;
+  font-variation-settings: 'SOFT' 100;
+}
+
+.quote__author {
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.scores {
+  display: grid;
+  align-content: center;
+  gap: var(--space-m);
+}
+
+.scores__item {
+  display: grid;
+}
+
+.scores__value {
+  font-family: var(--font-display);
+  font-size: var(--step-5);
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--terracotta);
+}
+
+.scores__value::after {
+  content: '★';
+  font-size: 0.4em;
+  vertical-align: 0.9em;
+  margin-left: 0.1em;
+  color: var(--ottone);
+}
+
+.scores__label {
+  font-weight: 600;
+  color: var(--color-muted);
+}

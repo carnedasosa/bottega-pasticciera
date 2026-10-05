@@ -1,0 +1,131 @@
+.site-footer {
+  position: relative;
+  margin-top: var(--space-2xl);
+  padding-block: var(--space-2xl) var(--space-l);
+  background: var(--cioccolato);
+  color: color-mix(in srgb, var(--panna) 82%, transparent);
+}
+
+/* L'arco che "apre" il footer, come gli archi della sala */
+.site-footer__arch {
+  position: absolute;
+  inset: auto 0 100%;
+  height: clamp(3rem, 8vw, 7rem);
+  background: var(--cioccolato);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.site-footer__brand {
+  grid-column: span 1;
+}
+
+.site-footer__mark {
+  width: 3.5rem;
+  height: 3.5rem;
+  color: var(--terracotta-soft);
+  margin-bottom: var(--space-s);
+}
+
+.site-footer__wordmark {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-style: italic;
+  line-height: 1;
+  color: var(--panna);
+  font-variation-settings: 'SOFT' 100;
+}
+
+.site-footer__wordmark small {
+  font-size: 0.5em;
+}
+
+.site-footer__claim {
+  margin-top: var(--space-s);
+  font-size: var(--step--1);
+}
+
+.site-footer__title {
+  margin-bottom: var(--space-s);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta-soft);
+}
+
+.site-footer__col p + p {
+  margin-top: var(--space-s);
+}
+
+.site-footer a {
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.site-footer a:hover {
+  color: var(--panna);
+}
+
+.site-footer__links,
+.social {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+}
+
+.social__link svg {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-s);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-m);
+  border-top: 1px solid color-mix(in srgb, var(--panna) 15%, transparent);
+  font-size: var(--step--1);
+}
+
+/* Pulsante WhatsApp flottante */
+.whatsapp-fab {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: #fff;
+  box-shadow: var(--shadow-lift);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.whatsapp-fab:hover {
+  transform: scale(1.08) rotate(-6deg);
+}
+
+.whatsapp-fab svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}

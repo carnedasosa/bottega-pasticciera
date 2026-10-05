@@ -1,0 +1,38 @@
+/* Sigillo circolare rotante con il marchio al centro */
+.seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(7rem, 12vw, 9.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--cioccolato);
+  color: var(--panna);
+  box-shadow: var(--shadow-lift);
+}
+
+.seal__text {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  fill: currentColor;
+  animation: spin 22s linear infinite;
+}
+
+.seal__mark {
+  width: 42%;
+  height: 42%;
+  color: var(--terracotta-soft);
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}

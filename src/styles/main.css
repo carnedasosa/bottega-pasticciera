@@ -1,0 +1,47 @@
+/**
+ * Foglio di stile principale.
+ * L'ordine dei layer stabilisce la precedenza: un layer successivo vince
+ * sempre su uno precedente, a prescindere dalla specificità dei selettori.
+ */
+@layer reset, tokens, base, layout, components, sections, utilities;
+
+/* Font self-hosted: nessuna richiesta a server esterni (privacy/GDPR) */
+@import url('@fontsource-variable/fraunces/full.css') layer(tokens);
+@import url('@fontsource-variable/fraunces/full-italic.css') layer(tokens);
+@import url('@fontsource-variable/manrope/index.css') layer(tokens);
+
+@import url('./base/reset.css') layer(reset);
+@import url('./base/tokens.css') layer(tokens);
+@import url('./base/typography.css') layer(base);
+@import url('./base/global.css') layer(base);
+
+@import url('./layout/container.css') layer(layout);
+@import url('./layout/header.css') layer(layout);
+@import url('./layout/footer.css') layer(layout);
+
+@import url('./components/button.css') layer(components);
+@import url('./components/chip.css') layer(components);
+@import url('./components/status.css') layer(components);
+@import url('./components/seal.css') layer(components);
+@import url('./components/arch-card.css') layer(components);
+@import url('./components/marquee.css') layer(components);
+@import url('./components/hover-preview.css') layer(components);
+@import url('./components/quote.css') layer(components);
+@import url('./components/hours.css') layer(components);
+@import url('./components/menu-card.css') layer(components);
+@import url('./components/form.css') layer(components);
+@import url('./components/ticket.css') layer(components);
+
+@import url('./sections/hero.css') layer(sections);
+@import url('./sections/manifesto.css') layer(sections);
+@import url('./sections/day.css') layer(sections);
+@import url('./sections/showcase.css') layer(sections);
+@import url('./sections/catering-teaser.css') layer(sections);
+@import url('./sections/voices.css') layer(sections);
+@import url('./sections/visit.css') layer(sections);
+@import url('./sections/page-hero.css') layer(sections);
+@import url('./sections/menu-board.css') layer(sections);
+@import url('./sections/catering.css') layer(sections);
+@import url('./sections/planner.css') layer(sections);
+
+@import url('./base/utilities.css') layer(utilities);

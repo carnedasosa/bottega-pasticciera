@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <!-- @include head.html {
+      "title": "Catering per matrimoni, cerimonie ed eventi — La Bottega Pasticcera",
+      "description": "Catering artigianale a Sannicandro di Bari e provincia: matrimoni, comunioni, compleanni ed eventi aziendali con menu personalizzati, torte e pasticceria dal nostro laboratorio.",
+      "path": "catering.html"
+    } -->
+  </head>
+
+  <body class="page page--catering">
+    <!-- @include sprite.html -->
+    <!-- @include header.html -->
+
+    <main id="contenuto">
+      <!-- ─────────────── HERO ─────────────── -->
+      <section class="catering-hero" aria-labelledby="catering-title">
+        <div class="container catering-hero__grid">
+          <div class="catering-hero__copy">
+            <p class="eyebrow eyebrow--light">Catering La Bottega Pasticcera</p>
+            <h1 class="catering-hero__title" id="catering-title">
+              Feste che sanno<br /><em>di Bottega.</em>
+            </h1>
+            <p class="catering-hero__lead">
+              Ricevimenti, banchetti ed eventi privati con lo stesso laboratorio che ogni mattina riempie la nostra
+              vetrina. Menu su misura, ingredienti freschi e locali, una squadra che pensa a tutto.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--cream" href="#preventivo">
+                Componi il tuo evento <svg aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+              <a class="btn btn--ghost-light" href="{{ site.socials.instagramCatering }}" target="_blank" rel="noopener">
+                <svg aria-hidden="true"><use href="#i-instagram" /></svg> Guarda i nostri eventi
+              </a>
+            </div>
+          </div>
+
+          <div class="arches" aria-hidden="true">
+            <div class="arches__item"><img src="/src/assets/img/dettaglio-mignon.webp" alt="" width="640" height="400" /></div>
+            <div class="arches__item"><img src="/src/assets/img/dettaglio-zeppole.webp" alt="" width="640" height="640" /></div>
+            <div class="arches__item"><img src="/src/assets/img/dettaglio-tiramisu.webp" alt="" width="640" height="640" /></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── TIPOLOGIE DI EVENTO ─────────────── -->
+      <section class="events" aria-labelledby="events-title">
+        <div class="container">
+          <header class="section-head" data-reveal>
+            <p class="eyebrow">Per ogni occasione</p>
+            <h2 class="section-title" id="events-title">Dal sì <em>alle cento candeline</em></h2>
+          </header>
+          <ul class="events__grid" data-component="event-types"></ul>
+        </div>
+      </section>
+
+      <!-- ─────────────── METODO ─────────────── -->
+      <section class="method" aria-labelledby="method-title">
+        <div class="container method__grid">
+          <header class="method__head" data-reveal>
+            <p class="eyebrow">Come lavoriamo</p>
+            <h2 class="section-title" id="method-title">Dal primo incontro <em>all’ultimo vassoio</em></h2>
+            <p>
+              Ogni evento è diverso, per questo non esistono menu fissi: partiamo da voi e costruiamo la proposta
+              insieme, salato e dolce.
+            </p>
+          </header>
+          <ol class="steps" data-component="catering-steps"></ol>
+        </div>
+      </section>
+
+      <!-- ─────────────── PASTICCERIA PER EVENTI ─────────────── -->
+      <section class="pastry" aria-labelledby="pastry-title">
+        <div class="container pastry__grid">
+          <figure class="pastry__media" data-reveal>
+            <img src="/src/assets/img/vetrina.webp" alt="La vetrina della pasticceria con zeppole, tiramisù, pistacchio e mignon" width="1278" height="1080" loading="lazy" />
+          </figure>
+          <div class="pastry__copy" data-reveal>
+            <p class="eyebrow">Il tocco finale</p>
+            <h2 class="section-title" id="pastry-title">Torte e dolci <em>su misura</em></h2>
+            <p>
+              Siamo pasticcieri prima di tutto. Torte personalizzate, pasticceria mignon, dessert monoporzione e
+              sweet table nascono nel nostro laboratorio artigianale, pensati per accompagnare il vostro menu.
+            </p>
+            <ul class="tick-list">
+              <li>Torte nuziali e da cerimonia</li>
+              <li>Torte di compleanno personalizzate</li>
+              <li>Vassoi di mignon e monoporzioni</li>
+              <li>Confettate e angoli dolci</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── VILLA IEVA ─────────────── -->
+      <section class="partner" aria-labelledby="partner-title">
+        <div class="container partner__card" data-reveal>
+          <div class="partner__badge" aria-hidden="true">
+            <span>location<br />partner</span>
+          </div>
+          <div>
+            <p class="eyebrow">Cercate anche la location?</p>
+            <h2 class="section-title" id="partner-title">Villa <em>Ieva</em></h2>
+            <p>
+              Villa con piscina per cerimonie ed eventi ad Acquaviva delle Fonti, sulla strada per Sannicandro.
+              Il catering della villa è firmato <strong>La Bottega Pasticcera</strong>: menu personalizzati per
+              matrimoni, feste private e incontri aziendali.
+            </p>
+            <p class="partner__meta">{{ site.partner.address }} · <a href="tel:{{ site.partner.phone }}">{{ site.partner.phoneLabel }}</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────────────── CONFIGURATORE ─────────────── -->
+      <section class="planner" id="preventivo" aria-labelledby="planner-title">
+        <div class="container">
+          <header class="section-head section-head--center" data-reveal>
+            <p class="eyebrow">Preventivo in un minuto</p>
+            <h2 class="section-title" id="planner-title">Componi <em>il tuo evento</em></h2>
+            <p>Scegli le opzioni: prepariamo noi il messaggio, tu lo invii su WhatsApp o via e-mail.</p>
+          </header>
+
+          <div class="planner__layout" data-component="event-configurator">
+            <form class="planner__form" novalidate>
+              <fieldset class="field">
+                <legend class="field__label"><span class="field__num">1</span> Che evento festeggiamo?</legend>
+                <div class="option-grid" data-options="event"></div>
+              </fieldset>
+
+              <div class="field">
+                <label class="field__label" for="guests"><span class="field__num">2</span> Quanti ospiti?</label>
+                <div class="range">
+                  <input class="range__input" id="guests" name="guests" type="range" />
+                  <output class="range__value" for="guests" data-guests-output></output>
+                </div>
+              </div>
+
+              <fieldset class="field">
+                <legend class="field__label"><span class="field__num">3</span> Che formula preferite?</legend>
+                <div class="option-grid option-grid--compact" data-options="format"></div>
+              </fieldset>
+
+              <fieldset class="field">
+                <legend class="field__label"><span class="field__num">4</span> Dolci ed extra</legend>
+                <div class="chips" data-options="extras"></div>
+              </fieldset>
+
+              <div class="field field--split">
+                <label class="input">
+                  <span class="input__label">Data dell’evento</span>
+                  <input class="input__control" type="date" name="date" />
+                </label>
+                <label class="input">
+                  <span class="input__label">Luogo o comune</span>
+                  <input class="input__control" type="text" name="place" placeholder="Es. Villa Ieva, a casa, Bari…" />
+                </label>
+              </div>
+
+              <div class="field field--split">
+                <label class="input">
+                  <span class="input__label">Il tuo nome</span>
+                  <input class="input__control" type="text" name="name" autocomplete="name" />
+                </label>
+                <label class="input input--wide">
+                  <span class="input__label">Qualcosa da aggiungere?</span>
+                  <textarea class="input__control" name="notes" rows="3" placeholder="Intolleranze, tema, orari…"></textarea>
+                </label>
+              </div>
+            </form>
+
+            <aside class="ticket" aria-live="polite">
+              <div class="ticket__head">
+                <svg class="ticket__mark" aria-hidden="true"><use href="#logo-mark" /></svg>
+                <p class="ticket__brand">La Bottega Pasticcera<br /><small>richiesta di preventivo</small></p>
+              </div>
+              <dl class="ticket__rows" data-ticket></dl>
+              <div class="ticket__actions">
+                <a class="btn btn--whatsapp" data-send="whatsapp" target="_blank" rel="noopener">
+                  <svg aria-hidden="true"><use href="#i-whatsapp" /></svg> Invia su WhatsApp
+                </a>
+                <a class="btn btn--ghost" data-send="email">Invia per e-mail</a>
+              </div>
+              <p class="ticket__hint">Nessun dato viene salvato sul sito: il messaggio parte dal tuo telefono o dalla tua e-mail.</p>
+            </aside>
+          </div>
+
+          <noscript>
+            <p class="planner__fallback">
+              Scrivici a <a href="mailto:{{ site.contacts.email }}">{{ site.contacts.email }}</a> o chiama il
+              <a href="tel:{{ site.contacts.phone }}">{{ site.contacts.phoneLabel }}</a>.
+            </p>
+          </noscript>
+        </div>
+      </section>
+    </main>
+
+    <!-- @include footer.html -->
+  </body>
+</html>

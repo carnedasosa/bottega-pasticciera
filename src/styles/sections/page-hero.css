@@ -1,0 +1,35 @@
+/* Hero delle pagine interne */
+.page-hero {
+  position: relative;
+  padding-block: calc(var(--header-h) + var(--space-2xl)) var(--space-xl);
+  overflow: hidden;
+}
+
+.page-hero__inner {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.page-hero__title {
+  font-size: var(--step-5);
+  font-weight: 400;
+}
+
+.page-hero__lead {
+  max-width: 40rem;
+  font-size: var(--step-1);
+  color: var(--color-muted);
+}
+
+.page-hero__mark {
+  position: absolute;
+  right: -4vw;
+  bottom: -6vw;
+  width: clamp(14rem, 34vw, 30rem);
+  height: auto;
+  aspect-ratio: 1;
+  color: var(--terracotta);
+  opacity: 0.12;
+  rotate: -12deg;
+  pointer-events: none;
+}

@@ -1,0 +1,25 @@
+.showcase {
+  padding-block: var(--space-2xl);
+}
+
+.showcase__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-xl) var(--space-l);
+}
+
+@media (min-width: 900px) {
+  .showcase__grid {
+    align-items: start;
+  }
+
+  .arch-card--offset {
+    margin-top: var(--space-2xl);
+  }
+}
+
+.showcase__cta {
+  margin-top: var(--space-2xl);
+  text-align: center;
+  font-size: var(--step-1);
+}

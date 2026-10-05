@@ -1,0 +1,43 @@
+/* Indicatore "Aperto ora" (components/open-status.js) */
+[data-component~='open-status'] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status-pill {
+  padding: 0.4rem 0.9rem 0.4rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--panna) 80%, transparent);
+  border: 1px solid var(--color-line);
+}
+
+.status-dot {
+  --dot: var(--pistacchio);
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--dot);
+  box-shadow: 0 0 0 0 var(--dot);
+  animation: pulse 2s infinite;
+}
+
+[data-state='closing'] .status-dot {
+  --dot: var(--ottone);
+}
+
+[data-state='closed'] .status-dot {
+  --dot: var(--terracotta);
+  animation: none;
+}
+
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 0.5rem transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}

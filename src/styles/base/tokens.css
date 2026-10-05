@@ -1,0 +1,67 @@
+/**
+ * Design token.
+ * Palette ricavata dal locale: la volta bianca (latte), il velluto delle
+ * sedute (terracotta), la glassa del logo (cioccolato), i dettagli in
+ * ottone e le scaglie della graniglia del pavimento.
+ */
+:root {
+  /* Colori */
+  --latte: #f7f0e6;
+  --panna: #fffaf3;
+  --biscotto: #ecdcc6;
+  --terracotta: #c4532d;
+  --terracotta-deep: #9e3d1f;
+  --terracotta-soft: #e9a27f;
+  --cioccolato: #3b1c12;
+  --cacao: #5a2e1f;
+  --ottone: #b48a4a;
+  --pistacchio: #8fa65a;
+  --whatsapp: #1f9d55;
+
+  --color-bg: var(--latte);
+  --color-surface: var(--panna);
+  --color-text: var(--cioccolato);
+  --color-muted: color-mix(in srgb, var(--cioccolato) 68%, var(--latte));
+  --color-line: color-mix(in srgb, var(--cioccolato) 16%, transparent);
+  --color-accent: var(--terracotta);
+
+  /* Tipografia */
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Manrope Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.92rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
+  --step-2: clamp(1.45rem, 1.25rem + 1vw, 2rem);
+  --step-3: clamp(1.9rem, 1.5rem + 2vw, 3rem);
+  --step-4: clamp(2.5rem, 1.8rem + 3.6vw, 4.8rem);
+  --step-5: clamp(3.2rem, 2rem + 6vw, 7.5rem);
+
+  /* Spazi */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 0.75rem;
+  --space-m: 1.25rem;
+  --space-l: 2rem;
+  --space-xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+  --space-2xl: clamp(4rem, 3rem + 5vw, 8rem);
+
+  /* Forme: l'arco è il motivo ricorrente del sito */
+  --radius-s: 0.5rem;
+  --radius-m: 1rem;
+  --radius-l: 1.75rem;
+  --radius-pill: 999px;
+  --radius-arch: 50vmax 50vmax var(--radius-s) var(--radius-s);
+
+  --shadow-soft: 0 1px 2px rgb(59 28 18 / 0.06), 0 12px 32px -12px rgb(59 28 18 / 0.25);
+  --shadow-lift: 0 2px 4px rgb(59 28 18 / 0.08), 0 28px 60px -20px rgb(59 28 18 / 0.4);
+
+  --container: 76rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --header-h: 4.5rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --terrazzo: url('../../assets/brand/terrazzo.svg');
+}

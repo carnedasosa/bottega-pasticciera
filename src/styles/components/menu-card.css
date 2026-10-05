@@ -1,0 +1,104 @@
+/* Scheda di categoria del menu: carta "da menu" con puntini guida */
+.menu-card {
+  padding: var(--space-l);
+  border-radius: var(--radius-l);
+  background: var(--panna);
+  box-shadow: var(--shadow-soft);
+  break-inside: avoid;
+  margin-bottom: var(--space-l);
+  scroll-margin-top: 12rem;
+}
+
+.menu-card__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  padding-bottom: var(--space-s);
+  margin-bottom: var(--space-s);
+  border-bottom: 1.5px solid var(--cioccolato);
+}
+
+.menu-card__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50% 50% var(--radius-s) var(--radius-s);
+  background: var(--terracotta);
+  color: var(--panna);
+  flex: none;
+}
+
+.menu-card__title {
+  font-size: var(--step-3);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.menu-card__list {
+  display: grid;
+}
+
+.dish {
+  padding-block: var(--space-xs);
+}
+
+.dish + .dish {
+  border-top: 1px solid color-mix(in srgb, var(--cioccolato) 7%, transparent);
+}
+
+.dish__line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+.dish__name {
+  font-weight: 600;
+}
+
+.dish__leader {
+  flex: 1;
+  min-width: 1rem;
+  border-bottom: 2px dotted color-mix(in srgb, var(--cioccolato) 28%, transparent);
+  translate: 0 -0.3em;
+}
+
+.dish__price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--terracotta-deep);
+  white-space: nowrap;
+}
+
+.dish__note {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  max-width: 34ch;
+}
+
+.dish__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-2xs);
+}
+
+.tag {
+  padding: 0.05rem 0.5rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: var(--biscotto);
+}
+
+.tag--puglia {
+  background: color-mix(in srgb, var(--terracotta) 18%, var(--panna));
+  color: var(--terracotta-deep);
+}
+
+.tag--senza-lattosio {
+  background: color-mix(in srgb, var(--pistacchio) 22%, var(--panna));
+  color: #4f6128;
+}

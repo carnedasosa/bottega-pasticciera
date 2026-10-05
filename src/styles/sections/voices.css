@@ -1,0 +1,33 @@
+.voices {
+  padding-block: var(--space-2xl);
+  background: var(--cioccolato);
+  overflow: hidden;
+}
+
+.voices .marquee {
+  margin-bottom: var(--space-2xl);
+}
+
+.voices__grid {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.voices .scores__label {
+  color: color-mix(in srgb, var(--panna) 70%, transparent);
+}
+
+.voices .scores__value {
+  color: var(--terracotta-soft);
+}
+
+@media (min-width: 900px) {
+  .voices__grid {
+    grid-template-columns: 1fr 1fr auto;
+    align-items: start;
+  }
+
+  .voices__grid .quote:nth-child(2) {
+    margin-top: var(--space-xl);
+  }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Torta con glassa colante: il segno del menu de La Bottega Pasticcera -->
+  <path fill="currentColor" stroke="none" d="M12 19q0-6 6-6h28q6 0 6 6v7q0 3-2.5 3T47 26v-1q0-2-2-2t-2 2v8q0 3-3 3t-3-3v-7q0-2-2-2t-2 2v2q0 3-3 3t-3-3v-3q0-2-2-2t-2 3v5q0 3-3 3t-3-3v-5q0-2-2-2t-2-2Z"/>
+  <path d="M14 27v12h36V27"/>
+  <path d="M8 42q0 5 24 5t24-5"/>
+</svg>

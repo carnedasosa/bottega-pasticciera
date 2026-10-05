@@ -1,0 +1,60 @@
+<footer class="site-footer">
+  <div class="site-footer__arch" aria-hidden="true"></div>
+
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <svg class="site-footer__mark" aria-hidden="true"><use href="#logo-mark" /></svg>
+      <p class="site-footer__wordmark"><small>la</small> Bottega<br />Pasticcera</p>
+      <p class="site-footer__claim">Bar · Pasticceria · Catering<br />dal laboratorio al bancone.</p>
+    </div>
+
+    <address class="site-footer__col">
+      <h2 class="site-footer__title">Vieni a trovarci</h2>
+      <p>{{ site.address.street }}<br />{{ site.address.postalCode }} {{ site.address.city }} ({{ site.address.province }})</p>
+      <p>
+        <a href="tel:{{ site.contacts.phone }}">{{ site.contacts.phoneLabel }}</a><br />
+        <a href="mailto:{{ site.contacts.email }}">{{ site.contacts.email }}</a>
+      </p>
+    </address>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__title">Esplora</h2>
+      <ul class="site-footer__links">
+        <li><a href="/#giornata">Una giornata in Bottega</a></li>
+        <li><a href="/menu.html">Il menu</a></li>
+        <li><a href="/catering.html">Catering ed eventi</a></li>
+        <li><a href="/catering.html#preventivo">Richiedi un preventivo</a></li>
+      </ul>
+    </div>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__title">Seguici</h2>
+      <ul class="social">
+        <li>
+          <a class="social__link" href="{{ site.socials.instagram }}" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-instagram" /></svg> @labottegapasticcera
+          </a>
+        </li>
+        <li>
+          <a class="social__link" href="{{ site.socials.instagramCatering }}" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-instagram" /></svg> @catering_labottegapasticcera
+          </a>
+        </li>
+        <li>
+          <a class="social__link" href="{{ site.socials.facebook }}" target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#i-facebook" /></svg> La Bottega Pasticcera
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>© <span data-year>2026</span> La Bottega Pasticcera · Sannicandro di Bari</p>
+    <p>Per allergie e intolleranze chiedi al nostro personale.</p>
+  </div>
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/{{ site.contacts.whatsapp }}" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg aria-hidden="true"><use href="#i-whatsapp" /></svg>
+</a>

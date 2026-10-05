@@ -1,0 +1,317 @@
+/* ── Hero catering ─────────────────────────────────────────────── */
+.catering-hero {
+  padding-block: calc(var(--header-h) + var(--space-2xl)) var(--space-2xl);
+  background: var(--cioccolato) var(--terrazzo) center / 320px;
+  background-blend-mode: soft-light;
+  color: color-mix(in srgb, var(--panna) 85%, transparent);
+  border-radius: 0 0 50vw 50vw / 0 0 10vw 10vw;
+  overflow: hidden;
+}
+
+/* L'header su sfondo scuro */
+.page--catering .site-header:not(.is-scrolled) .brand,
+.page--catering .site-header:not(.is-scrolled) .site-nav__link,
+.page--catering .site-header:not(.is-scrolled) .site-nav__status {
+  color: var(--panna);
+}
+
+@media (max-width: 960px) {
+  .page--catering .site-header:not(.is-scrolled) .nav-toggle {
+    background: var(--panna);
+  }
+
+  .page--catering .site-header:not(.is-scrolled) .nav-toggle__bars,
+  .page--catering .site-header:not(.is-scrolled) .nav-toggle__bars::before,
+  .page--catering .site-header:not(.is-scrolled) .nav-toggle__bars::after {
+    background-color: var(--cioccolato);
+  }
+
+  .page--catering .site-header.is-open .nav-toggle__bars {
+    background-color: transparent;
+  }
+}
+
+.catering-hero__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .catering-hero__grid {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+.catering-hero__copy {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.catering-hero__title {
+  font-size: var(--step-5);
+  font-weight: 400;
+  color: var(--panna);
+}
+
+.catering-hero__title em {
+  color: var(--terracotta-soft);
+}
+
+.catering-hero__lead {
+  max-width: 36rem;
+  font-size: var(--step-1);
+}
+
+/* Tre archi affiancati, come le arcate di un portico */
+.arches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-s);
+  align-items: end;
+}
+
+.arches__item {
+  aspect-ratio: 1 / 2.1;
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  animation: rise 1.2s var(--ease-out) both;
+}
+
+.arches__item:nth-child(2) {
+  aspect-ratio: 1 / 2.5;
+  animation-delay: 0.12s;
+}
+
+.arches__item:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.arches__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Tipologie di evento ───────────────────────────────────────── */
+.events {
+  padding-block: var(--space-2xl);
+}
+
+.events__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-m);
+}
+
+.event-card {
+  display: grid;
+  align-content: start;
+  gap: var(--space-s);
+  padding: var(--space-xl) var(--space-l) var(--space-l);
+  border-radius: 10rem 10rem var(--radius-l) var(--radius-l);
+  background: var(--panna);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  justify-items: center;
+  transition:
+    transform 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out);
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+}
+
+.event-card__icon {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--terracotta) 14%, var(--panna));
+  color: var(--terracotta);
+}
+
+.event-card__title {
+  font-size: var(--step-2);
+}
+
+.event-card__text {
+  color: var(--color-muted);
+}
+
+/* ── Metodo ────────────────────────────────────────────────────── */
+.method {
+  padding-block: var(--space-2xl);
+}
+
+.method__grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 900px) {
+  .method__grid {
+    grid-template-columns: 1fr 1.4fr;
+  }
+
+  .method__head {
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-l));
+    align-self: start;
+  }
+}
+
+.method__head {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.method__head p:last-child {
+  color: var(--color-muted);
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-m);
+  counter-reset: step;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-m);
+  padding: var(--space-l);
+  border-radius: var(--radius-l);
+  background: var(--panna);
+  box-shadow: var(--shadow-soft);
+}
+
+.step__num {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 4.25rem;
+  border-radius: 50% 50% var(--radius-s) var(--radius-s);
+  background: var(--terracotta);
+  color: var(--panna);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+}
+
+.step__title {
+  font-size: var(--step-2);
+}
+
+.step__text {
+  color: var(--color-muted);
+}
+
+/* ── Pasticceria per eventi ────────────────────────────────────── */
+.pastry {
+  padding-block: var(--space-2xl);
+}
+
+.pastry__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .pastry__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pastry__media {
+  border-radius: var(--radius-arch);
+  overflow: hidden;
+  box-shadow: var(--shadow-lift);
+  aspect-ratio: 4 / 5;
+}
+
+.pastry__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pastry__copy {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.tick-list {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.tick-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  font-weight: 600;
+}
+
+.tick-list li::before {
+  content: '';
+  width: 0.9rem;
+  height: 1.1rem;
+  border-radius: 50% 50% 2px 2px;
+  background: var(--terracotta);
+  flex: none;
+}
+
+/* ── Partner Villa Ieva ────────────────────────────────────────── */
+.partner {
+  padding-block: var(--space-xl);
+}
+
+.partner__card {
+  display: grid;
+  gap: var(--space-l);
+  align-items: center;
+  padding: var(--space-xl);
+  border-radius: var(--radius-l);
+  background: var(--biscotto) var(--terrazzo) center / 320px;
+  border: 1.5px solid var(--color-line);
+}
+
+@media (min-width: 760px) {
+  .partner__card {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.partner__card > div {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.partner__badge {
+  display: grid;
+  place-items: center;
+  width: 9rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--panna);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-style: italic;
+  text-align: center;
+  line-height: 1.1;
+  rotate: -10deg;
+  box-shadow: var(--shadow-soft);
+}
+
+.partner__meta {
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--color-muted);
+}
