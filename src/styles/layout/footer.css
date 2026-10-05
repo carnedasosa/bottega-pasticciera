@@ -129,3 +129,11 @@
   width: 1.75rem;
   height: 1.75rem;
 }
+
+/* Mobile: spazio in fondo perché il pulsante WhatsApp non copra
+   l'ultima riga del footer */
+@media (max-width: 820px) {
+  .site-footer {
+    padding-bottom: calc(var(--space-l) + 3.5rem + var(--gutter));
+  }
+}

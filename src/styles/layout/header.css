@@ -175,6 +175,10 @@
     justify-content: center;
     gap: var(--space-l);
     padding: var(--space-2xl) var(--gutter);
+    /* Su schermi bassi (telefono in orizzontale) le voci scorrono
+       dentro il menu, senza trascinare la pagina sotto */
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--cioccolato);
     color: var(--panna);
     clip-path: inset(100% 0 0 0 round 50vw 50vw 0 0);
@@ -206,12 +210,40 @@
     display: inline-flex;
   }
 
-  /* backdrop-filter crea un containing block: va tolto perché il menu
-     fixed possa coprire tutto lo schermo */
-  .site-header.is-open {
+  /* Su mobile lo sfondo "vetro" vive in uno pseudo-elemento: backdrop-filter
+     sull'header creerebbe un containing block e il menu (fixed) resterebbe
+     intrappolato nella barra durante l'animazione di chiusura */
+  .site-header.is-scrolled {
+    background: none;
     backdrop-filter: none;
-    background: transparent;
     box-shadow: none;
+  }
+
+  .site-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: color-mix(in srgb, var(--latte) 88%, transparent);
+    backdrop-filter: blur(14px) saturate(1.3);
+    box-shadow: 0 1px 0 var(--color-line);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .site-header.is-scrolled::before {
+    opacity: 1;
+  }
+
+  /* Anche transform crea un containing block: a menu aperto l'header
+     non deve mai essere traslato, nemmeno a metà transizione */
+  .site-header.is-open {
+    transform: none;
+    transition: none;
+  }
+
+  .site-header.is-open::before {
+    opacity: 0;
   }
 
   .is-open .brand {

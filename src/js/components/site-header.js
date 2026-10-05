@@ -8,6 +8,11 @@ export default function mount(header) {
   const toggle = header.querySelector('.nav-toggle');
   const nav = header.querySelector('.site-nav');
   let lastY = window.scrollY;
+  // Durata della chiusura del menu mobile (clip-path in layout/header.css):
+  // finché l'animazione è in corso l'header non va nascosto, altrimenti il
+  // transform lo trasforma in containing block e il menu "salta".
+  const CLOSE_MS = 750;
+  let lockedUntil = 0;
 
   const setHidden = (hidden) => {
     header.classList.toggle('is-hidden', hidden);
@@ -18,11 +23,16 @@ export default function mount(header) {
   onScroll(() => {
     const y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 24);
-    if (y !== lastY) setHidden(y > lastY && y > 400 && !header.classList.contains('is-open'));
+    const locked = header.classList.contains('is-open') || performance.now() < lockedUntil;
+    if (y !== lastY) setHidden(y > lastY && y > 400 && !locked);
     lastY = y;
   });
 
   const setOpen = (open) => {
+    const wasOpen = header.classList.contains('is-open');
+    if (wasOpen === open) return;
+    if (open) setHidden(false);
+    else lockedUntil = performance.now() + CLOSE_MS;
     header.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
     document.body.classList.toggle('no-scroll', open);

@@ -10,6 +10,9 @@ body {
   overflow-x: clip;
 }
 
+/* Blocca lo scroll a menu mobile aperto: anche su <html>, perché su iOS
+   overflow sul solo body non basta */
+html:has(> body.no-scroll),
 body.no-scroll {
   overflow: hidden;
 }
