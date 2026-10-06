@@ -56,10 +56,6 @@
   font-style: italic;
 }
 
-.hover-list__img {
-  display: none;
-}
-
 .hover-list__index {
   font-family: var(--font-body);
   font-size: var(--step--1);
