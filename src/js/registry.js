@@ -8,7 +8,6 @@ export const registry = {
   'open-status': () => import('./components/open-status.js'),
   'hero-arch': () => import('./components/hero-arch.js'),
   'day-timeline': () => import('./components/day-timeline.js'),
-  'hover-reveal': () => import('./components/hover-reveal.js'),
   marquee: () => import('./components/marquee.js'),
   reviews: () => import('./components/reviews.js'),
   'hours-table': () => import('./components/hours-table.js'),

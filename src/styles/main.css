@@ -25,7 +25,6 @@
 @import url('./components/seal.css') layer(components);
 @import url('./components/arch-card.css') layer(components);
 @import url('./components/marquee.css') layer(components);
-@import url('./components/hover-preview.css') layer(components);
 @import url('./components/quote.css') layer(components);
 @import url('./components/hours.css') layer(components);
 @import url('./components/menu-card.css') layer(components);

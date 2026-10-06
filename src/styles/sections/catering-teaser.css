@@ -29,7 +29,7 @@
   color: var(--panna);
 }
 
-/* Lista grande con anteprima al passaggio del mouse */
+/* Lista grande: al passaggio del mouse la voce scivola e cambia colore */
 .hover-list {
   border-top: 1px solid color-mix(in srgb, var(--panna) 18%, transparent);
 }
@@ -45,19 +45,22 @@
   font-variation-settings: 'SOFT' 100;
   color: var(--panna);
   cursor: default;
-  transition:
-    padding 0.5s var(--ease-out),
-    color 0.3s;
+  transition: color 0.3s;
+}
+
+/* Lo spostamento usa translate e non padding, e il testo resta dritto:
+   così la larghezza della riga non cambia mai e la voce non va a capo
+   (con padding + corsivo, uscendo dall'hover, "battesimi" saltava sotto) */
+.hover-list__item > * {
+  transition: translate 0.5s var(--ease-out);
 }
 
 .hover-list__item:hover {
-  padding-left: var(--space-m);
   color: var(--terracotta-soft);
-  font-style: italic;
 }
 
-.hover-list__img {
-  display: none;
+.hover-list__item:hover > * {
+  translate: var(--space-m) 0;
 }
 
 .hover-list__index {
